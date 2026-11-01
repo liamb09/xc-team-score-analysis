@@ -1,0 +1,132 @@
+:root {
+    --background-color: #141B18;
+    --primary-color: #F2AF29;
+    --text-color: #E0E0CE;
+    --background-color-light: #2c312f;
+    --background-color-lighter: #404744;
+}
+
+* {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    color: var(--text-color);
+    font-weight: 400;
+}
+
+html {
+    font-family: Tahoma, sans-serif;
+    font-size: 14px;
+    background-color: var(--background-color);
+    scroll-behavior: smooth;
+    text-align: center;
+    overscroll-behavior-y: none;
+}
+
+body {
+    display: inline-block;
+    text-align: left;
+    width: 80%;
+}
+
+#score-table-container {
+    display: flex;
+    gap: 1rem;
+    text-align: center;
+}
+#score-table-container > div, #controls-container {
+    border: 1px solid var(--background-color-light);
+    border-radius: 0.5rem;
+}
+.table-scroll {
+    max-height: 70vh;
+    overflow-y: auto;
+}
+#ind-container {
+    flex: 4;
+}
+#team-container {
+    flex: 3;
+}
+.team-runner {
+    display: flex;
+}
+.team-runner span:first-child {
+    min-width: 3ch;
+}
+.team-runner span:nth-child(2) {
+    min-width: 20ch;
+}
+.team-runner span:nth-child(3) {
+    min-width: 9ch;
+}
+
+table {
+    width: 100%;
+    table-layout: fixed;
+    text-align: left;
+}
+table, th, td {
+    border: none !important;
+    border-collapse: collapse;
+}
+th {
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: var(--background-color-light);
+}
+th, td {
+    padding: 0.25rem 0 0.25rem 0.25rem;
+}
+#ind-results tbody > tr:nth-child(odd) {
+  background-color: var(--background-color-light);
+}
+#team-results tbody > tr:nth-child(even) {
+  background-color: var(--background-color-light);
+}
+.place-col, .grade-col {
+    width: 4ch;
+}
+.score-col {
+    width: 6ch;
+}
+/* .team-name-col {
+    width: 50%;
+} */
+.time-col {
+    width: 8ch;
+}
+.ind-name-col {
+    width: 20ch;
+}
+ol {
+    margin: 0;
+    padding-left: 3ch;
+}
+
+#controls-container {
+    padding: 1rem;
+}
+#controls-container > h1 {
+    margin-top: 0;
+}
+input, button {
+    padding: 0.25rem;
+    border: 1px solid var(--background-color-light);
+    border-radius: 0.25rem;
+    background-color: var(--background-color);
+}
+input:focus {
+    outline: none;
+}
+button:hover {
+    background-color: var(--background-color-light);
+    cursor: pointer;
+}
+#name-input {
+    width: 20ch;
+}
+#time-input {
+    width: 5ch;
+}

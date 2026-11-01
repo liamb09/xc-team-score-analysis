@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>XC Analysis</title>
+        <!-- <link rel="icon" type="image/x-icon" href="{{ 'assets/favicon.svg' | relative_url }}"> -->
+        <link rel="stylesheet" href="styles.css" />
+        <link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css" />
+        <script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
+    </head>
+    <body>
+        <br />
+        <div id="controls-container">
+            <h1>XC Team Score Analysis</h1>
+            <div id="time-change-container">
+                Change <input type="text" placeholder="John Doe" id="name-input" />'s time to <input type="text" placeholder="16:00" id="time-input" />
+                <button id="change-time-button">&rarr;</button>
+            </div>
+            <p style="margin-bottom:0;">Reload to reset.</p>
+        </div>
+        <br /><br />
+        <div id="score-table-container">
+            <div id="ind-container">
+                <h2>Individual Results (team qualifiers only)</h2>
+                <div class="table-scroll">
+                    <table id="ind-results"></table>
+                </div>
+            </div>
+            <div id="team-container">
+                <h2>Team Results</h2>
+                <div class="table-scroll">
+                    <table id="team-results"></table>
+                </div>
+            </div>
+        </div>
+        <script type="py" config="./conf.json" src="./main.py"></script>
+    </body>
+</html>

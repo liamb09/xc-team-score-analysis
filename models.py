@@ -39,6 +39,16 @@ class Runner:
             </tr>
         """
 
+    def html_team_display (self, rank):
+        return f"""
+            <li class="team-runner">
+                <span>{rank}.</span>
+                <span>{self.name}</span>
+                <span>{self.pr}</span>
+                <span>{self.pr_meet}</span>
+            </li>
+        """
+
     def __str__ (self):
         return f"{self.name[:23]}\t{'\t' if len(self.name)<=15 else ''}({self.grade}) {self.pr}  {self.team_name}"
 
@@ -53,23 +63,34 @@ class Team:
     def __init__ (self, raw_str):
         lines = raw_str.split("\n")
         self.name = lines[0]
-        self.avg = lines[3]
         self.team_split = lines[5]
         self.runners = []
+        self.scores = None
         for i in range(len(lines)):
             if len(lines[i].strip()) == 1:
                 self.runners.append(Runner(lines[i+1:i+4], self.name))
+        self.update_avg()
+
+    def update_avg (self):
+        self.avg = s_to_time(round(sum([r.pr_s for r in self.runners[:5]])/5, 2))
 
     def display_short (self):
         return f"{self.name} ({self.avg} avg, {self.team_split} split)"
 
-    def display_html (self, place, score):
+    def display_html (self, place):
         return f"""
-            <tr>
+            <tr class="team-header-row">
                 <td>{place}</td>
                 <td>{self.name}</td>
-                <td>{score}</td>
+                <td>{sum(self.scores[:5])}</td>
                 <td>{self.avg}</td>
+            </tr>
+            <tr class="team-detail-row">
+                <td></td><td colspan="3">
+                    <ol>
+                        {"\n".join([self.runners[i].html_team_display(i+1) for i in range(len(self.runners))])}
+                    </ol>
+                </td>
             </tr>
         """
 
