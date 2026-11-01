@@ -130,3 +130,12 @@ button:hover {
 #time-input {
     width: 5ch;
 }
+#meet-bias-input {
+    width: 3ch;
+}
+#meet-input {
+    width: 25ch;
+}
+#time-change-container {
+    margin-bottom: 0.25rem;
+}

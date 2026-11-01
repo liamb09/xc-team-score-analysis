@@ -28,6 +28,7 @@ initialize_objects()
 
 changes = []
 change_time_button = web.page["change-time-button"]
+meet_bias_button = web.page["meet-bias-button"]
 
 def change_time (name, time):
     runner = None
@@ -38,7 +39,7 @@ def change_time (name, time):
     if not runner:
         return
 
-    runner.change_time(time)
+    runner.set_time(time)
     runners.sort(key=lambda x: x.pr_s)
 
 def calculate_scores ():
@@ -84,3 +85,13 @@ def handle_time_change(_):
     update_results()
     web.page["name-input"].value = ""
     web.page["time-input"].value = ""
+
+@when("click", meet_bias_button)
+def handle_meet_bias(_):
+    for runner in runners:
+        if runner.pr_meet == web.page["meet-input"].value:
+            runner.increase_time(int(web.page["meet-bias-input"].value))
+    runners.sort(key=lambda x: x.pr_s)
+    update_results()
+    web.page["meet-bias-input"].value = ""
+    web.page["meet-input"].value = ""

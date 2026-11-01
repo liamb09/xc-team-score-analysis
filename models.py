@@ -52,12 +52,16 @@ class Runner:
     def __str__ (self):
         return f"{self.name[:23]}\t{'\t' if len(self.name)<=15 else ''}({self.grade}) {self.pr}  {self.team_name}"
 
-    def change_time (self, time):
+    def set_time (self, time):
         self.pr = time
         if "." not in time:
             self.pr += ".00"
         self.pr_s = time_to_s(time)
         self.pr_meet = "[custom time]"
+
+    def increase_time (self, amount):
+        self.pr_s += amount
+        self.pr = s_to_time(self.pr_s)
 
 class Team:
     def __init__ (self, raw_str):
