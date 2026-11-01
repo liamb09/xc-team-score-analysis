@@ -14,15 +14,20 @@
         <br />
         <div id="controls-container">
             <h1>XC Team Score Analysis</h1>
-            <div id="time-change-container">
-                Change <input type="text" placeholder="John Doe" id="name-input" />'s time to <input type="text" placeholder="16:00" id="time-input" />
-                <button id="change-time-button">&rarr;</button>
+            <div id="actions-container">
+                <div id="action-fields">
+                    <div id="time-change-container">
+                        Change <input type="text" placeholder="John Doe" id="name-input" />'s time to <input type="text" placeholder="16:00" id="time-input" />
+                        <button id="change-time-button">&rarr;</button>
+                    </div>
+                    <div id="meet-bias-container">
+                        Add <input type="text" placeholder="20" id="meet-bias-input" /> seconds to times run at <input type="text" placeholder="Lovejoy XC Fall Festival" id="meet-input" />
+                        <button id="meet-bias-button">&rarr;</button>
+                    </div>
+                    <p style="margin-bottom:0;">Reload to reset.</p>
+                </div>
+                <div id="changes-display"></div>
             </div>
-            <div id="meet-bias-container">
-                Add <input type="text" placeholder="20" id="meet-bias-input" /> seconds to times run at <input type="text" placeholder="Lovejoy XC Fall Festival" id="meet-input" />
-                <button id="meet-bias-button">&rarr;</button>
-            </div>
-            <p style="margin-bottom:0;">Reload to reset.</p>
         </div>
         <br />
         <div id="score-table-container">

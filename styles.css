@@ -38,7 +38,7 @@ body {
     border-radius: 0.5rem;
 }
 .table-scroll {
-    max-height: 70vh;
+    max-height: 60vh;
     overflow-y: auto;
 }
 #ind-container {
@@ -138,4 +138,17 @@ button:hover {
 }
 #time-change-container {
     margin-bottom: 0.25rem;
+}
+#actions-container {
+    display: flex;
+    gap: 1rem
+}
+#changes-display > h2, #changes-display > p {
+    margin: 0;
+}
+#action-fields {
+    flex: 3;
+}
+#changes-display {
+    flex: 2;
 }

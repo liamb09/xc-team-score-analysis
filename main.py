@@ -39,6 +39,7 @@ def change_time (name, time):
     if not runner:
         return
 
+    changes.append(f"{runner.name}'s time changed from {runner.pr} to {time}")
     runner.set_time(time)
     runners.sort(key=lambda x: x.pr_s)
 
@@ -77,6 +78,8 @@ def update_results ():
         </tr>
     """ + "\n".join([teams[i].display_html(i+1) for i in range(len(teams))])
 
+    web.page["changes-display"].innerHTML = ("<h2>Changes</h2>" if len(changes) > 0 else "") + "".join([f"<p>{i}</p>" for i in changes])
+
 update_results()
 
 @when("click", change_time_button)
@@ -91,6 +94,7 @@ def handle_meet_bias(_):
     for runner in runners:
         if runner.pr_meet == web.page["meet-input"].value:
             runner.increase_time(int(web.page["meet-bias-input"].value))
+    changes.append(web.page["meet-bias-input"].value + " seconds added to times from " + web.page["meet-input"].value)
     runners.sort(key=lambda x: x.pr_s)
     update_results()
     web.page["meet-bias-input"].value = ""
